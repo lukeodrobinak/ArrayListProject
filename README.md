@@ -1,3 +1,2 @@
 # ArrayListProject
-Franklin and Luke ArrayList Project 
-Ethan came later but is unimportant
+Luke, Franklin, and Ethan ArrayList Project 
