@@ -69,6 +69,16 @@
         return counter;
     }
 
+    public T get(int i) {
+        Node<T> currentNode = rootNode;
+        for (int n = 0; n <= i; n++) {
+            if (currentNode.getChildNode() != null) {
+                currentNode = currentNode.getChildNode();
+            }
+        }
+        return currentNode.getValue();
+    }
+
     public void set(int i, T data) {
         Node<T> currentNode = rootNode;
         for (int n = 0; n <= i; n++) {
@@ -78,7 +88,6 @@
         }
         currentNode.setValue(data);
     }
-
 }
 
 
