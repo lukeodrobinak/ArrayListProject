@@ -5,19 +5,28 @@
  * Collaborators:
  * Citations: Google, Oracle Java Docs, GitHub Documentation, Stack Overflow
  **/
-    public class ArrayList<T>{
+    public class ArrayList<T> {
 
-        private T value;
+    private T value;
+    private Node<T> rootNode = null;
 
 
-        public ArrayList() {//Default constructor
+    public ArrayList() {//Default constructor
+    }
+
+    public boolean add(T data) {
+        Node<T> currentNode = rootNode;
+        if (rootNode.equals(null)) {
+            rootNode = new Node<>(data);
+        } else {
+            while (currentNode.getChildNode().equals(null)) {
+                currentNode = currentNode.getChildNode();
+            }
+            Node<T> addedNode = new Node<>(data, currentNode, null);
+            currentNode.setChildNode(addedNode);
         }
-        public boolean add(T data){
-
-                Node<T> addedNode = new Node<>(data);
-
-            return true;
-        }
+        return true;
+    }
 }
 
 
