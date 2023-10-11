@@ -49,11 +49,13 @@
             if (currentNode.getChildNode() != null) {
                 currentNode = currentNode.getChildNode();
             }
-            currentNode.getParentNode().setChildNode(currentNode.getChildNode());
-            currentNode.getChildNode().setParentNode(currentNode.getParentNode());
-            currentNode.setParentNode(null);
-            currentNode.setChildNode(null);
         }
+
+        currentNode.getParentNode().setChildNode(currentNode.getChildNode());
+        currentNode.getChildNode().setParentNode(currentNode.getParentNode());
+        currentNode.setParentNode(null);
+        currentNode.setChildNode(null);
+
         return currentNode.getValue();
     }
 
@@ -66,6 +68,17 @@
         }
         return counter;
     }
+
+    public void set(int i, T data) {
+        Node<T> currentNode = rootNode;
+        for (int n = 0; n <= i; n++) {
+            if (currentNode.getChildNode() != null) {
+                currentNode = currentNode.getChildNode();
+            }
+        }
+        currentNode.setValue(data);
+    }
+
 }
 
 
