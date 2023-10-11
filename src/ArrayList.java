@@ -45,7 +45,7 @@
 
     public T remove(int i){
         Node<T> currentNode = rootNode;
-        for(int n = 0; n<i; n++) {
+        for(int n = 0; n<=i; n++) {
             if (currentNode.getChildNode != null) {
                 currentNode = currentNode.getChildNode();
             }
