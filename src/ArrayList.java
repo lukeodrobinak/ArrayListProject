@@ -34,7 +34,7 @@
         } else {
             Node<T> currentNode = rootNode;
             for(int n = 0; n<i; n++) {
-                if (currentNode.getChildNode != null) {
+                if (currentNode.getChildNode() != null) {
                     currentNode = currentNode.getChildNode();
                 }
             }
@@ -46,22 +46,54 @@
     public T remove(int i){
         Node<T> currentNode = rootNode;
         for(int n = 0; n<=i; n++) {
-            if (currentNode.getChildNode != null) {
+            if (currentNode.getChildNode() != null) {
                 currentNode = currentNode.getChildNode();
             }
-            currentNode.getParentNode.setChildNode(currentNode.getChildNode);
-            currentNode.getChildNode.setParentNode(currentNode.getParentNode);
-            currentNode.setParentNode(null);
-            currentNode.setChildNode(null);
         }
+
+        currentNode.getParentNode().setChildNode(currentNode.getChildNode());
+        currentNode.getChildNode().setParentNode(currentNode.getParentNode());
+        currentNode.setParentNode(null);
+        currentNode.setChildNode(null);
+
+        return currentNode.getValue();
+    }
+
+    public int size(){
+        Node<T> currentNode = rootNode;
+        int counter = 1;
+        while(currentNode.getChildNode() != null){
+            currentNode = currentNode.getChildNode();
+            counter++;
+        }
+        return counter;
+    }
+
+    public T get(int i) {
+        Node<T> currentNode = rootNode;
+        for (int n = 0; n <= i; n++) {
+            if (currentNode.getChildNode() != null) {
+                currentNode = currentNode.getChildNode();
+            }
+        }
+        return currentNode.getValue();
+    }
+
+    public void set(int i, T data) {
+        Node<T> currentNode = rootNode;
+        for (int n = 0; n <= i; n++) {
+            if (currentNode.getChildNode() != null) {
+                currentNode = currentNode.getChildNode();
+            }
+        }
+        currentNode.setValue(data);
     }
 }
 
 
 
 
-// T remove(int i)
-//
+
 // T get(int i)
 //
 // T set(int i, T data)
