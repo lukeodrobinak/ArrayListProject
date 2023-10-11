@@ -27,11 +27,25 @@
         }
         return true;
     }
+
+    public void add(int i, T data){
+        if (rootNode.equals(null)) {
+            rootNode = new Node<>(data);
+        } else {
+            Node<T> currentNode = rootNode;
+            for(int n = 0; n<i; n++) {
+                if (currentNode.getChildNode != null) {
+                    currentNode = currentNode.getChildNode();
+                }
+            }
+            Node<T> addedNode = new Node<>(data, currentNode, null);
+            currentNode.setChildNode(addedNode);
+        }
+    }
 }
 
 
-// boolean add(T data)
-//
+
 // void add(int i, T data)
 //
 // T remove(int i)
