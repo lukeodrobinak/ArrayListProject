@@ -42,12 +42,24 @@
             currentNode.setChildNode(addedNode);
         }
     }
+
+    public T remove(int i){
+        Node<T> currentNode = rootNode;
+        for(int n = 0; n<i; n++) {
+            if (currentNode.getChildNode != null) {
+                currentNode = currentNode.getChildNode();
+            }
+            currentNode.getParentNode.setChildNode(currentNode.getChildNode);
+            currentNode.getChildNode.setParentNode(currentNode.getParentNode);
+            currentNode.setParentNode(null);
+            currentNode.setChildNode(null);
+        }
+    }
 }
 
 
 
-// void add(int i, T data)
-//
+
 // T remove(int i)
 //
 // T get(int i)
