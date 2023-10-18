@@ -45,18 +45,32 @@
 
     public T remove(int i){
         Node<T> currentNode = rootNode;
-        for(int n = 0; n<=i; n++) {
-            if (currentNode.getChildNode() != null) {
+        T returnValue = currentNode.getValue();
+        if(i == 0){
+            rootNode = currentNode.getChildNode();
+            currentNode.getChildNode().setParentNode(null);
+        }else if(i== size()-1){
+            while(currentNode.getChildNode() != null){
                 currentNode = currentNode.getChildNode();
             }
+            currentNode.setParentNode(null);
+            currentNode.getParentNode().setChildNode(null);
+        }else{
+            for(int n = 0; n<=i; n++) {
+                currentNode= currentNode.getChildNode();
+            }
+            Node<T> childNode = new Node<>();
+            currentNode.setChildNode(childNode);
+            System.out.println(currentNode.getParentNode());
+            Node prevNode = currentNode.getParentNode();
+            System.out.println(currentNode.getChildNode());
+            Node nextNode = currentNode.getChildNode();
+
+            prevNode.setChildNode(nextNode);
+            nextNode.setParentNode(prevNode);
         }
 
-        currentNode.getParentNode().setChildNode(currentNode.getChildNode());
-        currentNode.getChildNode().setParentNode(currentNode.getParentNode());
-        currentNode.setParentNode(null);
-        currentNode.setChildNode(null);
-
-        return currentNode.getValue();
+        return returnValue;
     }
 
     public int size(){
