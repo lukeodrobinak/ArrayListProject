@@ -6,9 +6,7 @@
  * Citations: Google, Oracle Java Docs, GitHub Documentation, Stack Overflow
  **/
     public class ArrayList<T> {
-
-    private T value;
-    private Node<T> rootNode = null;
+    private Node<T> rootNode;
 
 
     public ArrayList() {//Default constructor
@@ -16,20 +14,20 @@
 
     public boolean add(T data) {
         Node<T> currentNode = rootNode;
-        if (rootNode.equals(null)) {
-            rootNode = new Node<>(data);
-        } else {
-            while (currentNode.getChildNode().equals(null)) {
+        if (rootNode.getValue()!=null) {
+            while (currentNode.getChildNode().getValue() == null) {
                 currentNode = currentNode.getChildNode();
             }
             Node<T> addedNode = new Node<>(data, currentNode, null);
             currentNode.setChildNode(addedNode);
+        } else {
+            rootNode.setValue(data);
         }
         return true;
     }
 
     public void add(int i, T data){
-        if (rootNode.equals(null)) {
+        if (rootNode==(null)) {
             rootNode = new Node<>(data);
         } else {
             Node<T> currentNode = rootNode;
@@ -105,12 +103,12 @@
 
     public String toString() {
         Node<T> currentNode = rootNode;
-        String output = "";
+        String output = "[";
         while(currentNode.getChildNode() != null){
             output += currentNode.getValue().toString() + ", ";
             currentNode = currentNode.getChildNode();
         }
-        output += currentNode.getValue().toString();
+        output += currentNode.getValue().toString() + "]";
         return output;
     }
 
