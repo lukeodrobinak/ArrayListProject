@@ -59,9 +59,7 @@
             }
             Node<T> childNode = new Node<>();
             currentNode.setChildNode(childNode);
-            System.out.println(currentNode.getParentNode());
             Node prevNode = currentNode.getParentNode();
-            System.out.println(currentNode.getChildNode());
             Node nextNode = currentNode.getChildNode();
 
             prevNode.setChildNode(nextNode);
