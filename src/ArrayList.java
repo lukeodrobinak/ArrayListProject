@@ -88,6 +88,18 @@
         }
         currentNode.setValue(data);
     }
+
+    public String toString() {
+        Node<T> currentNode = rootNode;
+        String output = "";
+        while(currentNode.getChildNode() != null){
+            output += currentNode.getValue().toString() + ", ";
+            currentNode = currentNode.getChildNode();
+        }
+        output += currentNode.getValue().toString();
+        return output;
+    }
+
 }
 
 
