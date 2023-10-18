@@ -91,12 +91,12 @@
 
     public String toString() {
         Node<T> currentNode = rootNode;
-        String output = "";
+        String output = "[";
         while(currentNode.getChildNode() != null){
             output += currentNode.getValue().toString() + ", ";
             currentNode = currentNode.getChildNode();
         }
-        output += currentNode.getValue().toString();
+        output += currentNode.getValue().toString() + "]";
         return output;
     }
 
